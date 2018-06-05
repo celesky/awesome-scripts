@@ -1,5 +1,5 @@
 #!/bin/bash
-### start vjmap
+## use vjmap to view heap usage in generation
 
 echo '==========Thanks to https://github.com/vipshop/vjtools=========='
 

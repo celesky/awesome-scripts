@@ -157,9 +157,9 @@ opscripts uninstall
     
  1. [vjmap](java/bin/vjmap)
 
-    `./vjmap.sh -all <PID> > /tmp/histo.log`
-    `./vjmap.sh -old <PID> > /tmp/histo-old.lo`
-    `./vjmap.sh -sur PID > /tmp/histo-sur.log`
+    `vjmap.sh -all <PID> > /tmp/histo.log`
+    `vjmap.sh -old <PID> > /tmp/histo-old.lo`
+    `vjmap.sh -sur PID > /tmp/histo-sur.log`
     > 使用唯品会的vjmap(思路来自于阿里巴巴的TBJMap)查看堆内存的分代占用信息，加强版jmap
 	 >
 	 >
