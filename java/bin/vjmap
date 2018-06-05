@@ -1,6 +1,8 @@
 #!/bin/bash
 ### start vjmap
 
+echo '==========Thanks to https://github.com/vipshop/vjtools=========='
+
 if [ -z "$JAVA_HOME" ]; then
     echo "JAVA_HOME env is not set, try to find it out"
 
