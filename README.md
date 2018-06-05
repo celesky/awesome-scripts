@@ -142,7 +142,9 @@ opscripts uninstall
 1. [sjk](java/bin/sjk)
 
     `sjk <cmd> <arguments>`
+    
     `sjk --commands`
+    
     `sjk --help <cmd>`
     > 使用sjk对Java诊断、性能排查、优化工具
     >
@@ -157,9 +159,12 @@ opscripts uninstall
     `./vjmap.sh -all <PID> > /tmp/histo.log`
     `./vjmap.sh -old <PID> > /tmp/histo-old.lo`
     `./vjmap.sh -sur PID > /tmp/histo-sur.log`
-    > 使用vjmap(思路来自于阿里巴巴的TBJMap)查看堆内存的分代占用信息，加强版jmap
-	>
-    > - 更多信息请参考: https://github.com/vipshop/vjtools/tree/master/vjmap
+    > 使用唯品会的vjmap(思路来自于阿里巴巴的TBJMap)查看堆内存的分代占用信息，加强版jmap
+	 >
+	 >
+	 > 注意：vjmap在执行过程中，会完全停止应用一段时间，必须摘流量执行！！！！
+	 >
+    > 更多信息请参考: https://github.com/vipshop/vjtools/tree/master/vjmap
 
 ### :shell: [`Shell`相关脚本](docs/shell.md)
 
