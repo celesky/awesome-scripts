@@ -15,4 +15,4 @@ if [ ! -f "$java_home/lib/tools.jar" ] && [ "$(uname)" != "Darwin"  ];then
     exit 1;
 fi
 
-java -Xbootclasspath/a:$java_home/lib/tools.jar -jar $base_dir/lib/sjk-0.4.2.jar $@
+java -Xbootclasspath/a:$java_home/lib/tools.jar -jar $base_dir/lib/sjk-0.10.1.jar $@

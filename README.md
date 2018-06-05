@@ -152,6 +152,7 @@ opscripts uninstall
     > - jps: 强化版
     > - hh: jmap -histo强化版
     > - gc: 实时报告垃圾回收信息
+    > - mx: 操作MBean
     > - 更多信息请参考: https://github.com/aragozin/jvm-tools
     
  1. [vjmap](java/bin/vjmap)
