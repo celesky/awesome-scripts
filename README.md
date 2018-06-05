@@ -1,7 +1,7 @@
 awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 ----
-[![GitHub stars](https://img.shields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/useful-scripts/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/useful-scripts/fork)
+[![GitHub stars](https://img.shields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/awesome-scripts/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/awesome-scripts/fork)
 
 本项目fork自<https://github.com/oldratlee/useful-scripts/>，现已经用于公司运维环境中，基于原项目所做更新如下:
 
@@ -65,7 +65,7 @@ opscripts uninstall
 1. [show-duplicate-java-classes](docs/java.md#beer-show-duplicate-java-classes)  
     
     > 找出`jar`文件和`class`目录中的重复类。用于排查`Java`类冲突问题。
-1. [find-in-jars](docs/java.md#beer-find-in-jarssh)  
+1. [find-in-jars](docs/java.md#beer-find-in-jars)  
     
     > 在目录下所有`jar`文件里，查找类或资源文件。
     
@@ -142,7 +142,9 @@ opscripts uninstall
 1. [sjk](java/bin/sjk)
 
     `sjk <cmd> <arguments>`
+    
     `sjk --commands`
+    
     `sjk --help <cmd>`
     > 使用sjk对Java诊断、性能排查、优化工具
     >
@@ -150,7 +152,34 @@ opscripts uninstall
     > - jps: 强化版
     > - hh: jmap -histo强化版
     > - gc: 实时报告垃圾回收信息
+    > - mx: 操作MBean
     > - 更多信息请参考: https://github.com/aragozin/jvm-tools
+    
+1. [vjmap](java/bin/vjmap)
+
+    `vjmap.sh -all <PID> > /tmp/histo.log`
+    `vjmap.sh -old <PID> > /tmp/histo-old.lo`
+    `vjmap.sh -sur PID > /tmp/histo-sur.log`
+    > 使用唯品会的vjmap(思路来自于阿里巴巴的TBJMap)查看堆内存的分代占用信息，加强版jmap
+	  >
+	  >
+	  > 注意：vjmap在执行过程中，会完全停止应用一段时间，必须摘流量执行！！！！
+	  >
+    > 更多信息请参考: https://github.com/vipshop/vjtools/tree/master/vjmap
+
+1. [vjdump](java/bin/vjdump)
+  
+    `vjdump.sh $pid`
+    `vjdump.sh --liveheap $pid`
+    > 使用唯品会的vjdump一次性快速dump现场信息，包括：
+    > - JVM启动参数及命令行参数: jinfo -flags $PID
+    > - thread dump数据：jstack -l $PID
+    > - sjk ttop JVM概况及繁忙线程：vjtop.sh -n 1 -d 3 $PID (需要将vjtop.sh 加入用户的PATH变量中)
+    > - jmap histo 堆对象统计数据：jmap -histo $PID & jmap -histo:live $PID
+    > - GC日志(如果JVM有设定GC日志输出)
+    > - heap dump数据（需指定--liveheap开启）：jmap -dump:live,format=b,file=${DUMP_FILE} $PID
+
+
 
 ### :shell: [`Shell`相关脚本](docs/shell.md)
 

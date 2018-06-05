@@ -1,5 +1,5 @@
 #!/bin/bash
-### start jvm debugger
+## start jvm debugger
 
 if [ $# -lt 1 ];then
     echo "Usage : jvm <pid or path expr>";
