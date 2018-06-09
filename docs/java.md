@@ -82,12 +82,24 @@ Options:
     -p, --pid       find out the highest cpu consumed threads from the specifed java process,
                     default from all java process.
     -c, --count     set the thread count to show, default is 5
-    -h, --help      display this help and exit
     -a, --append-file <file>  specify the file to append output as log
     -s, --jstack-path <path>  specify the path of jstack command
     -F, --force               set jstack to force a thread dump(use jstack -F option)
-    delay is the delay between updates in seconds.
-    ucount is the number of updates.
+    -S, --jstack-file-dir <path>  specifies the directory for storing jstack output files, and keep files.
+                            default store jstack output files at tmp dir, and auto remove after run.
+                            use this option to keep files so as to review jstack later.
+    -m, --mix-native-frames   set jstack to print both java and native frames (mixed mode).
+    -l, --lock-info           set jstack with long listing. Prints additional information about locks.
+    -d, --top-delay  <deplay> specifies the delay between top samples, default is 0.5 (second).
+                              get thread cpu percentage during this delay interval.
+                              more info see top -d option. eg: -d 1 (1 second).
+    -P, --use-ps              use ps command to find busy thread(cpu usage) instead of top command,
+                              default use top command, because cpu usage of ps command is expressed as
+                              the percentage of time spent running during the entire lifetime of a process,
+                              this is not ideal.
+    -h, --help      display this help and exit
+    delay is the delay between updates in seconds. when this is not set, it will output once.
+    ucount is the number of updates. when delay is set, ucount is not set, it will output in unstop mode.
 ```
 
 ### 示例
