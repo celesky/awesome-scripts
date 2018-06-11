@@ -380,7 +380,7 @@ update_count=0
 while true
 do
     [ -n "$append_file" ] && head_info >> "$append_file"
-    head_info
+    headInfo
     
    if $use_ps; then
             findBusyJavaThreadsByPs
