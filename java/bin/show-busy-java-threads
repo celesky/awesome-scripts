@@ -250,7 +250,7 @@ trap "cleanupWhenExit" EXIT
 
 headInfo() {
     colorEcho "0;34;42" ================================================================================
-    echo "$(date "+%Y-%m-%d %H:%M:%S.%N") [$(( i + 1 ))/$update_count]: ${COMMAND_LINE[@]}"
+    echo "$(date "+%Y-%m-%d %H:%M:%S.%N") [$(( update_count + 1 ))/$update_limit]: ${COMMAND_LINE[@]}"
     colorEcho "0;34;42" ================================================================================
     echo
 }
