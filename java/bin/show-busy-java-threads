@@ -250,7 +250,7 @@ trap "cleanupWhenExit" EXIT
 
 headInfo() {
     colorEcho "0;34;42" ================================================================================
-    echo "$(date "+%Y-%m-%d %H:%M:%S.%N") [$(( i + 1 ))/$update_count]: ${COMMAND_LINE[@]}"
+    echo "$(date "+%Y-%m-%d %H:%M:%S.%N") [$(( update_count + 1 ))/$update_limit]: ${COMMAND_LINE[@]}"
     colorEcho "0;34;42" ================================================================================
     echo
 }
@@ -285,7 +285,7 @@ __top_threadId_cpu() {
     #    to get cpu percentage of thread in 0.5 second interval
     HOME="$tmp_store_dir" top -H -b -d $top_delay -n 2 |
         awk '{
-                if (idx == 3 && $NF == "java")    # $NF is command
+                if (idx == 4 && $NF == "java")    # $NF is command
                     # only print 4th text block(idx == 3), aka. process info of second top update
                     print $1 " " $9    # $1 is thread id, $9 is %cpu
                 if ($0 == "")
@@ -380,7 +380,7 @@ update_count=0
 while true
 do
     [ -n "$append_file" ] && head_info >> "$append_file"
-    head_info
+    headInfo
     
    if $use_ps; then
             findBusyJavaThreadsByPs
